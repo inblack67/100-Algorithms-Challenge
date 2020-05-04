@@ -2,6 +2,8 @@ function add(param1: number, param2: number): number {
 
 }
 
+console.log(2+2)
+
 // function add2(param1: number[]): number {
 
 // }
