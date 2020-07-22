@@ -1,3 +1,11 @@
-const addDigits = number => number.toString().split('').reduce((acc, next) => parseInt(acc) + parseInt(next));
+const addDigits = num => {
+    const digitsArr = num.toString().split('');
+    const res = digitsArr.reduce((prev, current) => {
+        prev += +current;
+        return prev;
+    }, 0)
 
-console.log(addDigits(102));
+    return res;
+}
+
+console.log(addDigits(566));
