@@ -3,7 +3,7 @@ function arrayMaxConsecutiveSum (inputArray: number[], k: number): number {
     let sum = 0;
     let max = 0;
 
-    for (let i = 0; i < k i++) {
+    for (let i = 0; i < k; i++) {
         const el = inputArray[ i ];
         sum += el;
     }
