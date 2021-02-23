@@ -15,13 +15,12 @@ const sumProducts = (arr: number[], isOdd: boolean): number[] => {
 };
 
 const arrayConversion = (inputArray: number[]): number => {
-    let copiedArr = [ ...inputArray ];
     let isOdd = false;
+    let copiedArr = [ ...inputArray ];
     while (copiedArr.length !== 1) {
         copiedArr = sumProducts(copiedArr, isOdd);
         isOdd = !isOdd;
     }
-    
     return copiedArr[ 0 ];
 };
 
