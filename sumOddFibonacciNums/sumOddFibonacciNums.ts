@@ -7,7 +7,6 @@ const getFibonacci = (upTo: number): number[] => {
         uptoArr[ i ] = i;
     }
 
-
     const fib = [ 1, 1 ];
 
     for (let i = 0; i < uptoArr.length; i++) {
@@ -20,7 +19,7 @@ const getFibonacci = (upTo: number): number[] => {
     return fib;
 };
 
-const sumOddFibonacciNums = (num: number): number => {
+const sumOddFibonacciNums2 = (num: number): number => {
     let sum = 0;
     const fib = getFibonacci(num);
     fib.forEach((el) => {
@@ -28,6 +27,27 @@ const sumOddFibonacciNums = (num: number): number => {
             sum += el;
         }
     });
+    return sum;
+};
+
+const isOdd = (num: number) => {
+    return num % 2 !== 0;
+};
+
+const sumOddFibonacciNums = (num: number): number => {
+    let sum = 0;
+    let prev = 0;
+    let curr = 1;
+
+    for (let i = 2; i < num; i++) {
+        if (isOdd(curr) && curr < num) {
+            sum += curr;
+        }
+        const next = prev + curr;
+        prev = curr;
+        curr = next;
+    }
+
     return sum;
 };
 
