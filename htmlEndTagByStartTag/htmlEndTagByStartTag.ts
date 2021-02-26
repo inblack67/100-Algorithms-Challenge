@@ -7,7 +7,7 @@ const htmlEndTagByStartTag = (startTag: string): string => {
     return `</${ res }>`;
 };
 
-const str = '<a href="">';
+const str = '<Form.Control disabled>';
 console.log(htmlEndTagByStartTag("<button type='button' disabled>"));
 console.log(htmlEndTagByStartTag('<i>'));
 console.log(htmlEndTagByStartTag(str));
