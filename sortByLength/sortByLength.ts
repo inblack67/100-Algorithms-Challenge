@@ -1,9 +1,19 @@
-function sortByLength(inputArray: string[]): string[] {
+const sortByLength = (inputArray: string[]): string[] => {
+    const copiedArray = [ ...inputArray ];
+    copiedArray.sort((a, b) => {
+        if (a.length >= b.length) {
+            return 1;
+        } else {
+            return -1;
+        }
+    });
 
-}
+    return copiedArray;
+};
 
-console.log(sortByLength(["abc",
-"",
-"aaa",
-"a",
-"zz"]));
+const arr = [ "abc",
+    "",
+    "aaa",
+    "a",
+    "zz" ];
+console.log(sortByLength(arr));
