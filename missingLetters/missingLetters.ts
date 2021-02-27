@@ -1,4 +1,5 @@
-const missingLetters = (str: string): string => {
+// more dynamic
+const missingLetters2 = (str: string): string => {
     const dictionary = {};
     for (let i = 97; i <= 122; i++) {
         const char = String.fromCharCode(i);
@@ -19,7 +20,20 @@ const missingLetters = (str: string): string => {
     });
     return res;
 };
-console.log(missingLetters("bce"));
+
+// if its guranteed that letters will be in alphabetical order and only one will be missing
+const missingLetters = (str: string): string | undefined => {
+    const dict = 'abcdefghijklmnopqrstuvwxyz';
+    const strArr = str.split('');
+    for (let i = 0; i < strArr.length; i++) {
+        const el = strArr[ i ];
+        if (el !== dict[ i ]) {
+            return dict[ i ];
+        }
+    }
+};
+
+console.log(missingLetters("abce"));
 console.log(missingLetters("abce"));
 console.log(missingLetters("abcdefghjklmno"));
 console.log(missingLetters("abcdefghijklmnopqrstuvwxyz"));
