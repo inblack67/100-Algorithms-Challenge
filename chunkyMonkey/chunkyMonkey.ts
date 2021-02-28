@@ -1,11 +1,12 @@
 function chunkyMonkey (arr: any[], size: number): any[][] {
-    const part1 = arr.slice(0, size);   // second arg of slice is exlusive
-    const part2 = arr.slice(size);
+    const copiedArr = [ ...arr ];
     const res: any[][] = [];
-    res.push(part1);
-    res.push(part2);
+    while (copiedArr.length > 0) {
+        const elms = copiedArr.splice(0, size);
+        res.push(elms);
+    }
     return res;
 }
 
 console.log(chunkyMonkey([ "a", "b", "c", "d" ], 2));
-console.log(chunkyMonkey([ 0, 1, 2, 3, 4, 5 ], 4));
+console.log(chunkyMonkey([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ], 4));
