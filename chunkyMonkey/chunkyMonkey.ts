@@ -1,6 +1,4 @@
 function chunkyMonkey (arr: any[], size: number): any[][] {
-    console.log(arr);
-    console.log(size);
     const part1 = arr.slice(0, size);   // second arg of slice is exlusive
     const part2 = arr.slice(size);
     const res: any[][] = [];
