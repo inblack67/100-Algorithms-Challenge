@@ -1,27 +1,33 @@
 type MyRange = {
-    start?: number;
-    end?: number;
+    start: number;
+    end: number;
 };
 
-function composeRanges (nums: number[]): string[] {
-    console.log(nums);
-    let targetIndex = 0;
-    let obj: MyRange = {};
-    let tryMe = 0;
-    nums.forEach((el, i) => {
-        const nextEl = nums[ i + 1 ];
-        const diff = Math.abs(el - nextEl);
-        if (diff === 1) {
-            tryMe = 1;
-            targetIndex++;
-        } else {
-            tryMe = 0;
-        }
-        console.log(tryMe);
-    });
-    console.log(obj);
-    return null;
-}
+const composeRanges = (nums: number[]): string[] => {
+    const res: string[] = [];
+    const ranges: MyRange[] = [ { start: nums[ 0 ], end: nums[ 0 ] } ];
 
+    for (let i = 1; i < nums.length; i++) {
+        const el = nums[ i ];
+        const index = ranges.length - 1;
+        if (el === ranges[ index ].end + 1) {
+            ranges[ index ].end = el;
+        } else {
+            ranges.push({ start: el, end: el });
+        }
+    }
+
+    ranges.forEach(range => {
+        if (range.start !== range.end) {
+            const str = `${ range.start }->${ range.end }`;
+            res.push(str);
+        } else {
+            res.push(range.start.toString());
+        }
+    });
+
+    return res;
+
+};
 
 console.log(composeRanges([ -1, 0, 1, 2, 6, 7, 9 ]));
