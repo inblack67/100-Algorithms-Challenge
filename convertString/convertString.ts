@@ -1,4 +1,5 @@
-function convertString (s: string, t: string): boolean {
+// if order does not matter
+function convertString2 (s: string, t: string): boolean {
     const sourceArr = s.split('');
     const targetArr = t.split('');
     const sourceCounts = {};
@@ -33,6 +34,26 @@ function convertString (s: string, t: string): boolean {
         }
     }
     return true;
+}
+
+// if order matters
+function convertString (s: string, t: string): boolean {
+    const sourceArr = s.split('');
+    const targetArr = t.split('');
+    let targetIndex = 0;
+    let word = '';
+    for (let i = 0; i < sourceArr.length; i++) {
+        const el = sourceArr[ i ];
+        const target = targetArr[ targetIndex ];
+        if (el === target) {
+            word += el;
+            targetIndex++;
+        }
+        if (word === t) {
+            return true;
+        }
+    }
+    return false;
 }
 
 console.log(convertString('ceoydefthf5iyg5h5yts', 'codefights'));
