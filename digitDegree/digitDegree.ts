@@ -11,7 +11,6 @@ function digitDegree (n: number): number {
     }
 
     const strArr = str.split('');
-    console.log(strArr);
 
     strArr.forEach(el => {
         sum += +el;
@@ -24,7 +23,6 @@ function digitDegree (n: number): number {
 
     while (getDigits(sum) > 1) {
         const sumArr = sum.toString().split('');
-        console.log(sumArr);
         sum = 0;
         sumArr.forEach(el => {
             sum += +el;
@@ -37,4 +35,5 @@ function digitDegree (n: number): number {
 
 console.log(digitDegree(5));
 console.log(digitDegree(10));
+console.log(digitDegree(100));
 console.log(digitDegree(91));
