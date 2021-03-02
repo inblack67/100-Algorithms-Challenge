@@ -5,9 +5,10 @@ function factorializeANumber (num: number): number {
     return num * factorializeANumber(num - 1);
 }
 function factorializeANumber2 (num: number): number {
-    if (num <= 1) {
-        return num;
-    }
+    // given the constraints => this if block is not needed
+    // if (num <= 1) {
+    //     return num;
+    // }
 
     let res = 1;
 
