@@ -1,25 +1,4 @@
-const makePairs = (el1: string, el2: string): string[][] => {
-    const res: string[][] = [];
-    const pair = [ el1, el2 ].sort();
-    res.push(pair);
-    return res;
-};
-
-const checkPairs = (arr: string[][], el1: string, el2: string): boolean => {
-    for (let i = 0; i < arr.length; i++) {
-        const el = arr[ i ];
-        if (el.includes(el1) && el.includes(el2)) {
-            return true;
-        }
-    }
-    return false;
-};
-
-const pairs = makePairs('Z', 'A');
-console.log(pairs);
-console.log(checkPairs(pairs, 'Z', 'Z'));
-
-function newNumeralSystem (number: string): string[] {
+function newNumeralSystem2 (number: string): string[] {
     const dict = {};
     let j = 0;
     for (let i = 65; i < 91; i++) {
@@ -53,5 +32,19 @@ function newNumeralSystem (number: string): string[] {
 
     return res;
 }
+function newNumeralSystem (number: string): string[] {
+    const res: string[] = [];
+    let start = 65;
+    let end = number.charCodeAt(0);
 
+    while (start <= end) {
+        const str = `${ String.fromCharCode(start) }+${ String.fromCharCode(end) }`;
+        res.push(str);
+        start++;
+        end--;
+    }
+    return res;
+}
+
+console.log(newNumeralSystem2('G'));
 console.log(newNumeralSystem('G'));
