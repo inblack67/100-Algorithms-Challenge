@@ -13,7 +13,7 @@ function integerToStringOfFixedWidth (number: number, width: number): string {
         const strArr = str.split('');
         console.log(diff);
         for (let i = 0; i < diff; i++) {
-            strArr.unshift(0);
+            strArr.unshift('0');
         }
         return strArr.join('');
     }
