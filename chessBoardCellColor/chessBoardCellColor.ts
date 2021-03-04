@@ -23,7 +23,7 @@ function chessBoardCellColor (cell1: string, cell2: string): boolean {
     const cell1Y = +cell1[ 1 ];
     const cell2Y = +cell2[ 1 ];
 
-    if (areSimilar(cell1X, cell2X) === areSimilar(cell1Y, cell2Y)) {
+    if (areSimilar(cell1X, cell1Y) && areSimilar(cell2X, cell2Y)) {
         return true;
     }
 
@@ -33,3 +33,4 @@ function chessBoardCellColor (cell1: string, cell2: string): boolean {
 console.log(chessBoardCellColor('A1', 'C3'));
 console.log(chessBoardCellColor('A1', 'H3'));
 console.log(chessBoardCellColor('E5', 'B8'));
+console.log(chessBoardCellColor('H8', 'D4'));
